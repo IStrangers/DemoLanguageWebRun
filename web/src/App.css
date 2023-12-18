@@ -16,7 +16,6 @@
   height: 500px;
   outline: none;
   margin: 0 5px 0 0;
-  user-modify: read-write-plaintext-only;
 }
 
 .token-keyword {
