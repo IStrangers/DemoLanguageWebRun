@@ -19,13 +19,11 @@
 }
 
 .token-keyword {
-  color: #0572c7;
+  color: #770088;
 }
 
 .token-identifier{
-  color: #770088;
-  font-size: 14px;
-  font-weight: bold;
+  color: black;
 }
 
 .token-field{
@@ -36,15 +34,15 @@
 }
 
 .token-bracket{
-  color: black;
+  color: gray;
 }
 
 .token-number{
-  color: #164;
+  color: #2c6df0;
 }
 
 .token-string{
-  color: #164;
+  color: green;
 }
 
 .token-comment{
