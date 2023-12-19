@@ -39,7 +39,10 @@ function transformTkn(token: Record<string, any>): string {
         return 'number'
     } else if(token.tkn === 'STRING') {
         return 'string'
-    } else if(token.tkn === 'COMMENT') {
+    } else if(token.tkn === 'COMMENT' || token.tkn === 'MULTI_COMMENT') {
+        if (token.tkn === 'MULTI_COMMENT') {
+            token.literal = token.literal.replace(/\n/g,'</br>')
+        }
         return 'comment'
     } else if(token.tkn === 'WHITE_SPACE') {
         if(token.literal === '\n') {
