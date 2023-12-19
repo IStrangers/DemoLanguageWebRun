@@ -12,7 +12,7 @@ func registerParserController(engine *gin.Engine) {
 
 func parseToken(c *gin.Context) {
 	content, _ := c.GetRawData()
-	parser := parser.CreateParser(1, "", string(content))
+	parser := parser.CreateParser(1, "", string(content), false, false)
 	var tokens []Token
 	for tkn, literal, index := parser.ScanNextToken(); tkn != token.EOF; tkn, literal, index = parser.ScanNextToken() {
 		tokens = append(tokens, Token{Tkn: tkn.String(), Literal: literal, Index: int(index)})

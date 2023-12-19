@@ -37,6 +37,15 @@ function transformTkn(token: Record<string, any>): string {
         return 'bracket'
     } else if(token.tkn === 'NUMBER') {
         return 'number'
+    } else if(token.tkn === 'String') {
+        return 'string'
+    } else if(token.tkn === 'WHITE_SPACE') {
+        if(token.literal === '\n') {
+            token.literal = '</br>'
+            return 'newline'
+        }
+        token.literal = '&nbsp;'
+        return 'white-space'
     }
     return ''
 }
@@ -85,7 +94,7 @@ export default function App() {
                 <div>
                     {
                         tokens?.map((token: Record<string,any>) =>
-                            <span key={`${token.tkn}-${token.index}`} className={`token-${token.tkn}`}>{token.literal}&nbsp;</span>
+                            <span key={`${token.tkn}-${token.index}`} className={`token-${token.tkn}`} dangerouslySetInnerHTML={{__html: token.literal}}></span>
                         )
                     }
                 </div>

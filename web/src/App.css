@@ -43,6 +43,10 @@
   color: #164;
 }
 
+.token-string{
+  color: #164;
+}
+
 .token-error{
   color: red;
   border-bottom: 1px dashed;
