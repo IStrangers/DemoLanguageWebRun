@@ -37,8 +37,10 @@ function transformTkn(token: Record<string, any>): string {
         return 'bracket'
     } else if(token.tkn === 'NUMBER') {
         return 'number'
-    } else if(token.tkn === 'String') {
+    } else if(token.tkn === 'STRING') {
         return 'string'
+    } else if(token.tkn === 'COMMENT') {
+        return 'comment'
     } else if(token.tkn === 'WHITE_SPACE') {
         if(token.literal === '\n') {
             token.literal = '</br>'

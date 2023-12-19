@@ -47,6 +47,10 @@
   color: #164;
 }
 
+.token-comment{
+  color: green;
+}
+
 .token-error{
   color: red;
   border-bottom: 1px dashed;

@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/gin-contrib/cors v1.5.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/istrangers/demolanguage v0.0.0-20231219065731-de61af1b50b0
+	github.com/istrangers/demolanguage v0.0.0-20231219091546-5d2dd4b19294
 )
 
 require (
