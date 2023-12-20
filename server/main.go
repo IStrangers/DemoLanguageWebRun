@@ -9,5 +9,6 @@ func main() {
 	engine := gin.Default()
 	engine.Use(cors.Default())
 	registerParserController(engine)
+	registerRunCodeController(engine)
 	engine.Run()
 }

@@ -76,12 +76,27 @@ const parseToken = (content: string,callback: (tokens: Array<Record<string,any>>
     })
 }
 
+const runCode = (content: string,callback: (data: string) => void) => {
+    fetch('http://localhost:8080/runCode/run',{
+        method: 'post',
+        body: content,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        res.text().then((data: string) => {
+            callback(data)
+        })
+    })
+}
+
 export default function App() {
 
     const contentRef = useRef<HTMLDivElement>(null)
     const [tokens,setTokens] = useState<Array<Record<string,any>>>([])
+    const [runCodeResult,setRunCodeResult] = useState<string>()
 
-    const contentInput = (e: FormEvent<HTMLDivElement>) => {
+    const onContentInput = (e: FormEvent<HTMLDivElement>) => {
         if('insertCompositionText' === e.nativeEvent.type) {
             return
         }
@@ -90,19 +105,32 @@ export default function App() {
         })
     }
 
+    const onRunCode = () => {
+        runCode(contentRef.current?.textContent || '',function (data: string) {
+            setRunCodeResult(data)
+        })
+    }
+
     return (
         <main className='main'>
-            <div className='description'>
-                <div ref={contentRef} contentEditable="plaintext-only" onInput={contentInput}></div>
-            </div>
-            <div className='description'>
-                <div>
-                    {
-                        tokens?.map((token: Record<string,any>) =>
-                            <span key={`${token.tkn}-${token.index}`} className={`token-${token.tkn}`} dangerouslySetInnerHTML={{__html: token.literal}}></span>
-                        )
-                    }
+            <div onClick={onRunCode}>运行</div>
+            <div className='code-container'>
+                <div className='description'>
+                    <div ref={contentRef} contentEditable="plaintext-only" onInput={onContentInput}></div>
                 </div>
+                <div className='description'>
+                    <div>
+                        {
+                            tokens?.map((token: Record<string, any>) =>
+                                <span key={`${token.tkn}-${token.index}`} className={`token-${token.tkn}`}
+                                      dangerouslySetInnerHTML={{__html: token.literal}}></span>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className='run-code-result-container'>
+                <div>{ runCodeResult }</div>
             </div>
         </main>
     )

@@ -1,21 +1,37 @@
 .main {
+  margin: auto;
+  width: 1000px;
+}
+
+.code-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+}
+
+.description {
+  flex: 1;
 }
 
 .description div {
-  position: relative;
   padding: 1rem;
   background-color: white;
   border: 1px solid white;
-  border-radius: var(--border-radius);
-  width: 500px;
+  border-radius: 12px;
   height: 500px;
   outline: none;
   margin: 0 5px 0 0;
+  overflow: auto;
+}
+
+.run-code-result-container {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 12px;
+  height: 200px;
+  outline: none;
+  margin: 5px 0 0 0;
+  overflow: auto;
 }
 
 .token-keyword {
