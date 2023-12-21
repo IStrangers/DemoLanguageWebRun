@@ -8,6 +8,20 @@
   align-items: center;
 }
 
+.run-code-btn {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 12px;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  outline: none;
+  margin: 0 0 5px 0;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
 .description {
   flex: 1;
 }
@@ -17,9 +31,8 @@
   background-color: white;
   border: 1px solid white;
   border-radius: 12px;
-  height: 500px;
+  height: 400px;
   outline: none;
-  margin: 0 5px 0 0;
   overflow: auto;
 }
 
