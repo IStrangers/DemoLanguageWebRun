@@ -12,6 +12,10 @@ func registerRunCodeController(engine *gin.Engine) {
 func run(c *gin.Context) {
 	content, _ := c.GetRawData()
 	vm := vm.CreateVM()
-	result := vm.RunScript(string(content))
+	result, err := vm.RunScript(string(content))
+	if err != nil {
+		c.String(200, "%v", err.Error())
+		return
+	}
 	c.String(200, "%v", result)
 }
