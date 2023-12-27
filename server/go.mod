@@ -1,11 +1,13 @@
 module DemoLanguageWebRun
 
-go 1.20
+go 1.21
+
+toolchain go1.21.1
 
 require (
 	github.com/gin-contrib/cors v1.5.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/istrangers/demolanguage v0.0.0-20231225102444-9c854a8058be
+	github.com/istrangers/demolanguage v0.0.0-20231227121252-4a93f32e4be5
 )
 
 require (
