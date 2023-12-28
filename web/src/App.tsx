@@ -94,7 +94,7 @@ export default function App() {
 
     const contentRef = useRef<HTMLDivElement>(null)
     const [tokens,setTokens] = useState<Array<Record<string,any>>>([])
-    const [runCodeResult,setRunCodeResult] = useState<string>()
+    const [runCodeResult,setRunCodeResult] = useState<string>('')
 
     const onContentInput = (e: FormEvent<HTMLDivElement>) => {
         if('insertCompositionText' === e.nativeEvent.type) {
@@ -107,7 +107,7 @@ export default function App() {
 
     const onRunCode = () => {
         runCode(contentRef.current?.textContent || '',function (data: string) {
-            setRunCodeResult(data)
+            setRunCodeResult(data.replace(/\n/g,'</br>'))
         })
     }
 
@@ -131,7 +131,7 @@ export default function App() {
                 </div>
             </div>
             <div className='run-code-result-container'>
-                <div>{ runCodeResult }</div>
+                <span dangerouslySetInnerHTML={{__html: runCodeResult}}></span>
             </div>
         </main>
     )
