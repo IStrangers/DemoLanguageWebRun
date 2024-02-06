@@ -17,6 +17,10 @@ const keywords = [
     'default',
     'continue',
     'this',
+    'throw',
+    'try',
+    'catch',
+    'finally'
 ]
 
 const brackets = [
@@ -93,21 +97,21 @@ const runCode = (content: string,callback: (data: string) => void) => {
 export default function App() {
 
     const contentRef = useRef<HTMLDivElement>(null)
-    const [tokens,setTokens] = useState<Array<Record<string,any>>>([])
-    const [runCodeResult,setRunCodeResult] = useState<string>('')
+    const [tokens, setTokens] = useState<Array<Record<string, any>>>([])
+    const [runCodeResult, setRunCodeResult] = useState<string>('')
 
     const onContentInput = (e: FormEvent<HTMLDivElement>) => {
-        if('insertCompositionText' === e.nativeEvent.type) {
+        if ('insertCompositionText' === e.nativeEvent.type) {
             return
         }
-        parseToken(e.currentTarget.textContent || '',function (data: Array<Record<string,any>>) {
+        parseToken(e.currentTarget.textContent || '', function (data: Array<Record<string, any>>) {
             setTokens(data)
         })
     }
 
     const onRunCode = () => {
-        runCode(contentRef.current?.textContent || '',function (data: string) {
-            setRunCodeResult(data.replace(/\n/g,'</br>'))
+        runCode(contentRef.current?.textContent || '', function (data: string) {
+            setRunCodeResult(data.replace(/\n/g, '</br>'))
         })
     }
 

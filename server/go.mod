@@ -7,7 +7,7 @@ toolchain go1.21.1
 require (
 	github.com/gin-contrib/cors v1.5.0
 	github.com/gin-gonic/gin v1.9.1
-	github.com/istrangers/demolanguage v0.0.0-20231228094900-fadf5a4f02f5
+	github.com/istrangers/demolanguage v0.0.0-20240206030459-8ff563a14e02
 )
 
 require (
