@@ -20,7 +20,17 @@ const keywords = [
     'throw',
     'try',
     'catch',
-    'finally'
+    'finally',
+    'interface',
+    'class',
+    'extends',
+    'implements',
+    'static',
+    'super',
+    'private',
+    'protected',
+    'public',
+    'new',
 ]
 
 const brackets = [
@@ -120,7 +130,7 @@ export default function App() {
             <div className='run-code-btn' onClick={onRunCode}>运行</div>
             <div className='code-container'>
                 <div className='description'>
-                    <div ref={contentRef} contentEditable="plaintext-only" onInput={onContentInput}></div>
+                    <div ref={contentRef} contentEditable='plaintext-only' onInput={onContentInput}></div>
                 </div>
                 <div style={{margin: '0 2px 0 2px'}}></div>
                 <div className='description'>
